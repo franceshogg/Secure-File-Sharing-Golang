@@ -1,29 +1,46 @@
-# Project 2 Starter Code
+# SECURE FILE SHARING
 
-This repository contains the starter code for Project 2!
+## Project Description
 
-For comprehensive documentation, see the Project 2 Spec (https://cs161.org/proj2/).
+This project implements a secure file storage and sharing system in Go. Users can register with a username and password, securely store files, load them, and later append to or share those files with other users through cryptographic invitations. The system uses authenticated encryption and a secure key management scheme to maintain confidentiality, integrity, and user-level access control.
 
-Write your implementation in `client/client.go` and your integration tests in `client_test/client_test.go`. Optionally, you can also use `client/client_unittest.go` to write unit tests (e.g: to test your helper functions).
+## Technologies Used
 
-To test your implementation, run `go test -v` inside of the `client_test` directory. This will run all tests in both `client/client_unittest.go` and `client_test/client_test.go`.
+* Golang
+* Git
+* UUID (github.com/google/uuid)
+* CS161 Userlib (github.com/cs161-staff/project2-userlib)
+* JSON
 
-## Project Members
+## Features
 
-Fill in this section with the student IDs of all the members in your project group.
+List of features ready and TODOs for future development
+* User account creation and authentication
+* File storage and retrieval with per-user file isolation
+* File appending
+* Secure file sharing through invitation links
+* Access revocation for previously shared files
+* Usage of authenticated encryption, deterministic UUID generation, and KDFs for key security
 
-Partner 1 Name: Frances Hogg
+To-do list:
+* Add front-end to make project usable.
 
-Partner 1 SID: 3036203338
+## Getting Started
 
-Partner 1 Email: franceshogg@berkeley.edu
+- Clone the repository: git clone https://github.com/franceshogg/Secure-File-Sharing-Golang
+.git
+- Naviate to client-test folder:
+   - cd client-test
+- To test the code:
+   - go test -v
 
-Partner 2 Name (if applicable):
+## Usage
 
-Partner 2 SID (if applicable):
-
-Partner 2 Email (if applicable):
-
-Also add a link to this repo below (should start with https://github.com/cs161-students/).
-
-Link to this Github repo:https://github.com/cs161-students/fa24-proj2-franceshogg/
+* InitUser(username, password) – Registers and initializes a new user.
+* GetUser(username, password) – Authenticates and loads an existing user.
+* StoreFile(filename, content) – Stores a file securely for the authenticated user.
+* LoadFile(filename) – Loads the contents of a user’s file.
+* AppendToFile(filename, content) – Appends to an existing file (not yet implemented).
+* CreateInvitation(...) – Shares access to a file with another user (not yet implemented).
+* AcceptInvitation(...) – Accepts a shared file (not yet implemented).
+* RevokeAccess(...) – Revokes another user’s access to a shared file (not yet implemented).
